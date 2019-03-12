@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    long long n, b, t, d, s=0;
+    queue<long long>q;
+    cin >> n >> b;
+    for(int i = 0; i < n; i++)
+    {
+        cin >> t >> d;
+        s = max(s,t);
+        while(!q.empty() && q.front() <= t)
+            q.pop();
+        if(q.size() <= b)
+        {
+            q.push(s+d);
+            cout << s+d << " ";
+            s+=d;
+        }
+        else cout << -1 << " ";
+    }
+}
